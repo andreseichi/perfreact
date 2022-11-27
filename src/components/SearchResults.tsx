@@ -8,15 +8,26 @@ interface SearchResultsProps {
     priceFormatted: string;
     title: string;
   }>;
+  onAddToWishList: (id: number) => void;
 }
 
-export function SearchResults({ totalPrice, results }: SearchResultsProps) {
+export function SearchResults({
+  totalPrice,
+  results,
+  onAddToWishList,
+}: SearchResultsProps) {
   return (
     <div>
       <h2>Total Price: ${totalPrice}</h2>
 
       {results.map((product) => {
-        return <ProductItem product={product} />;
+        return (
+          <ProductItem
+            key={product.id}
+            product={product}
+            onAddToWishlist={onAddToWishList}
+          />
+        );
       })}
     </div>
   );

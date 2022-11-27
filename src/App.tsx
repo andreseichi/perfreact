@@ -51,6 +51,10 @@ function App() {
     setResults({ totalPrice, data: products });
   }
 
+  function handleAddToWishlist(id: number) {
+    console.log(id);
+  }
+
   return (
     <div className="App">
       <h1>Search</h1>
@@ -65,7 +69,11 @@ function App() {
         <button type="submit">Buscar</button>
       </form>
 
-      <SearchResults results={results.data} totalPrice={results.totalPrice} />
+      <SearchResults
+        results={results.data}
+        totalPrice={results.totalPrice}
+        onAddToWishList={handleAddToWishlist}
+      />
     </div>
   );
 }
